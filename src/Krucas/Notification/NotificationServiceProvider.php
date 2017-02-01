@@ -3,7 +3,7 @@
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
 use Krucas\Notification\Middleware\NotificationMiddleware;
-use Blade;
+use Illuminate\View\Compilers\BladeCompiler;
 
 class NotificationServiceProvider extends ServiceProvider
 {
