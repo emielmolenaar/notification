@@ -54,14 +54,15 @@ class Subscriber
     /**
      * Execute this event to flash messages.
      *
-     * @param Notification $notification
-     * @param NotificationsBag $notificationBag
-     * @param Message $message
+     * @param $eventName
+     * @param array $eventData
      * @return bool
      */
-    public function onFlash(Notification $notification, NotificationsBag $notificationBag, Message $message)
+    public function onFlash($eventName, array $eventData)
     {
-        $key = implode('.', [$this->key, $notificationBag->getName()]);
+        list($notification, $notificationsBag, $message) = $eventData;
+
+        $key = implode('.', [$this->key, $notificationsBag->getName()]);
 
         $this->session->push($key, $message);
 
